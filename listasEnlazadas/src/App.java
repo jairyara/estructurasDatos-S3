@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -13,54 +12,54 @@ public class App {
         int[] arrayGenerado = new int[cantidad];
         int[] arrayGenerado2 = new int[cantidad];
         int numero;
-        for (int i = cantidad - 1; i >= 0; i--) {
-            numero = numeroAleatorio.nextInt(cantidad);
+        for (int i = 0; i < cantidad; i++) {
+            numero = numeroAleatorio.nextInt(100);
             arrayGenerado[i] = numero;
             arrayGenerado2[i] = numero;
             System.out.println(arrayGenerado[i]);
         }
 
-        int inicio = Integer.parseInt(JOptionPane.showInputDialog(null, "Indique desde que numero quiere mostrar"));
 
         ArrayList<Integer> sliceArray = new ArrayList<>();
-        ArrayList<Integer> exceptions = new ArrayList<>();
 
-        System.out.println("Array sin ordenar");
+        System.out.println("Lista sin ordenar");
         System.out.println(Arrays.toString(arrayGenerado));
-        System.out.println("Array ordenado");
+        System.out.println("Lista ordenada");
         Arrays.sort(arrayGenerado);
         System.out.println(Arrays.toString(arrayGenerado));
 
-        for (int j = 0; j < arrayGenerado.length; j++) {
-            if (arrayGenerado[j] > inicio) {
-                sliceArray.add(arrayGenerado[j]);
-            } else {
-                exceptions.add(arrayGenerado[j]);
+        int inicio = Integer.parseInt(JOptionPane.showInputDialog(null, "Indique desde que numero quiere mostrar"));
+
+        for (int k : arrayGenerado) {
+            if (k > inicio) {
+                sliceArray.add(k);
             }
         }
 
-        System.out.println("Mostrar > " + inicio);
-        System.out.println(sliceArray);
-        System.out.println("Excepciones");
-        System.out.println(exceptions);
+        if (sliceArray.size() > 0) {
+            System.out.println("Mostrar > " + inicio);
+            System.out.println(sliceArray);
+        } else {
+            System.out.println(inicio + " este número no se encuentra en la lista");
+        }
 
-        int nuevaCantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Indique numero de nodos"));
+        System.out.println("Generando nueva lista");
 
         Random otrosNumerosAleatorios = new Random();
-        int[] nuevoArrayGenerado = new int[nuevaCantidad];
+        int[] nuevoArrayGenerado = new int[cantidad];
         int nuevoNumero;
-        for (int i = nuevaCantidad - 1; i >= 0; i--) {
-            nuevoNumero = otrosNumerosAleatorios.nextInt(nuevaCantidad);
+        for (int i = cantidad - 1; i >= 0; i--) {
+            nuevoNumero = otrosNumerosAleatorios.nextInt(100);
             nuevoArrayGenerado[i] = nuevoNumero;
             System.out.println(nuevoArrayGenerado[i]);
         }
 
-        System.out.println("Primer array");
+        System.out.println("Primer lista");
         System.out.println(Arrays.toString(arrayGenerado2));
-        System.out.println("Nuevo arrray");
+        System.out.println("Nueva lista");
         System.out.println(Arrays.toString(nuevoArrayGenerado));
 
-        System.out.println("Arrray concatenado");
+        System.out.println("Lista concatenada");
 
         int primerArrayLenght = arrayGenerado.length;
         int nuevoArraylenght = nuevoArrayGenerado.length;
@@ -70,7 +69,7 @@ public class App {
         System.arraycopy(arrayGenerado2, 0, arrayFinalDesordenado, nuevoArraylenght, primerArrayLenght);
         System.out.println(Arrays.toString(arrayFinalDesordenado));
         Arrays.sort(arrayFinalDesordenado);
-        System.out.println("Array ordenado");
+        System.out.println("Lista ordenada");
         System.out.println(Arrays.toString(arrayFinalDesordenado));
     }
 
