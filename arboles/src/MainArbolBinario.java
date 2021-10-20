@@ -40,9 +40,8 @@ public class MainArbolBinario {
                                 2. Recorrido en Inorden
                                 3. Recorrido en Preorden
                                 4. Recorrido en Postorden
-                                5. Recorrido por niveles
-                                6. Añadir un nuevo nodo
-                                9. Salir
+                                5. Recorrido en Inorden, preorden, postorden
+                                6. Salir
                                 """);
                 opcion = Integer.parseInt(br.readLine());
                 switch (opcion) {
@@ -77,19 +76,6 @@ public class MainArbolBinario {
                         System.out.println("");
                     }
                     case 5 -> {
-                        System.out.println("");
-                        System.out.println("");
-                        arbol.retornarAltura();
-                        arbol.imprimirnivel();
-                    }
-                    case 6 -> {
-                        System.out.println("");
-                        elemento = Integer.parseInt(br.readLine());
-                        System.out.print("[" + elemento + "]" + "");
-                        arbol.add(elemento);
-                        System.out.println("");
-                    }
-                    case 7 -> {
                         System.out.println("Inorden:");
                         System.out.println("");
                         arbol.inorden(arbol.getRoot());
@@ -105,24 +91,14 @@ public class MainArbolBinario {
                         arbol.postorden(arbol.getRoot());
                         System.out.println("");
                         System.out.println("");
-                        System.out.println("por niveles");
-                        System.out.println("");
-                        arbol.retornarAltura();
-                        arbol.imprimirnivel();
-                        System.out.println("");
-                        System.out.println("");
                     }
-                    case 8 -> {
-                        System.out.println("");
-                        System.out.println("");
-                    }
-                    case 9 -> System.out.println("Fin del programa");
+                    case 6 -> System.out.println("Fin del programa");
                     default -> System.out.println("No existe opción");
                 }
             } catch (NumberFormatException n) {
                 System.out.println("No existe opción" + n.getMessage());
             }
-        } while (opcion != 9);
+        } while (opcion != 6);
 
     }
 
