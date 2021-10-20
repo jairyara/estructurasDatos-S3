@@ -2,8 +2,7 @@ import java.util.*;
 
 public class Main {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         int skip, targetIndex;
         List<String> list = new ArrayList<>();
         Scanner in = new Scanner(System.in);
@@ -33,10 +32,7 @@ public class Main {
         targetIndex = skip;
         System.out.println("El orden de salida es: ");
 
-
-        while (!list.isEmpty())
-        {
-
+        while (!list.isEmpty()) {
             if (list.size() > 1) {
                 System.out.println(list.remove(targetIndex));
                 targetIndex = (targetIndex + skip) % list.size();
